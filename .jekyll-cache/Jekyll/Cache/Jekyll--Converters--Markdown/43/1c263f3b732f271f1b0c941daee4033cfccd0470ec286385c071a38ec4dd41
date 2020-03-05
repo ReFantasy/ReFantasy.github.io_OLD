@@ -1,0 +1,95 @@
+I"�<h2 id="事件之间的关系">事件之间的关系</h2>
+
+<ul>
+  <li>
+    <p>包含关系</p>
+
+    <p>如果事件$A$发生必然导致事件$B$发生，则称事件$A$包含于事件$B$，或称事件B包含事件A，记作$A\subset B$或$B\supset A$</p>
+  </li>
+  <li>
+    <p>相等关系</p>
+
+    <p>如果两个事件$A$与$B$满足：$A\subset B$或$B\subset A$ ，则称事件A与B相等。这意味着事件$A$与$B$本质上是同一个事件，记作：$A=B$</p>
+  </li>
+  <li>
+    <p>事件的和</p>
+
+    <p>两个事件$A$、$B$至少有一个发生，即“$A$发生或$B$发生”，这样的事件称为事件$A$、$B$的和，记作$A\cup B$</p>
+  </li>
+  <li>
+    <p> 事件的积（交）</p>
+
+    <p>两个事件$A$、$B$同时发生，这样的事件称为$A$与$B$的积，记作$A\cap B$或$AB$</p>
+  </li>
+  <li>
+    <p>互不相容事件  $AB=\oslash$</p>
+  </li>
+  <li>
+    <p>对立事件  $AB=\oslash$，且$A\cup B=\Omega$</p>
+  </li>
+  <li>
+    <p>事件的差</p>
+
+    <p>$A$发生且$B$不发生，记作$A-B$</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>事件之间的关系使用集合符号来进行表示，但其数学含义与集合间的运算不同。比如$A\cap B$不能理解为两个集合的交集，而应该是两个事件同时发生。</p>
+</blockquote>
+
+<h2 id="完备事件组">完备事件组</h2>
+
+<p>若$n$个事件$A_1,…,A_n$中至少有一个发生，且两两互不相容，即$\cup_{i}^n A_i= \Omega$，且$A_i{\cap}A_j=\oslash$，则称事件$A_1,…,A_n$构成一个完备事件组。</p>
+
+<h2 id="条件概率">条件概率</h2>
+
+<p>事件$B$发生的条件下事件$A$发生的条件概率：</p>
+
+<script type="math/tex; mode=display">\\P(A|B)=\frac{P(AB)}{P(B)}</script>
+
+<p>事件$A$发生的条件下事件$B$发生的条件概率：</p>
+
+<script type="math/tex; mode=display">\\P(B|A)=\frac{P(AB)}{P(A)}</script>
+
+<h2 id="全概率公式">全概率公式</h2>
+
+<p><strong>基本思想：</strong>由已知简单事件的概率，推出未知复杂事件的概率。</p>
+
+<p><strong>基本方法：</strong>将复杂事件化为两两互不相容事件之和，再利用概率的可加性。</p>
+
+<p><strong>定义：</strong>设$B$为随机试验$T$中的任一事件，事件$A_1,…,A_n$构成一完备事件组，即$\cup A_i= \Omega$，$A_i{\cap}A_j=\oslash(i\neq j)$，且$P(A_i)&gt;0,i=1,2,…,n$，则有</p>
+
+<script type="math/tex; mode=display">\\P(B)=\sum_{i=1}^n{P(B|A_i)P(A_i)}</script>
+
+<p>上述公式称为全概率公式。</p>
+
+<p><strong>证明：</strong>$B=B{\cap}{\Omega}=B{\cap}{(\cup_{i=1}^nA_i)}=\cup_i^n{(B\cap A_i)}$，由于$A_i{\cap}A_j=\oslash(i\neq j)$，所以$BA_i{\cap}BA_j=\oslash(i\neq j)$，即$BA_1,BA_2,…,BA_n$两两互不相容，根据概率的有限可加性与乘法公式得</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation}
+\begin{aligned}
+P(B)&=P(BA_1)+P(BA_2)+...+P(BA_n)
+\\& =\sum_{i=1}^nP(BA_i)
+\\& =\sum_{i=1}^nP(B|A_i)P(A_i)
+\end{aligned}
+\end{equation} %]]></script>
+
+<p>我们可以将事件$B$视为“结果”，$A_1,A_2,…,A_n$则视为导致结果$B$发生的“原因”，称为$P(A_i)$为<strong>先验概率</strong>。</p>
+
+<h2 id="贝叶斯bayes公式">贝叶斯(Bayes)公式</h2>
+
+<p>在全概率公式中，将事件<script type="math/tex">B</script>视为“结果”，事件<script type="math/tex">A_1,...,A_n</script>视为导致结果<script type="math/tex">B</script>发生的“原因”。有时我们还想要知道结果<script type="math/tex">B</script>发生到底主要由什么原因所引起，即需求$P({A_i}|{B})$，称之为<strong>后验概率</strong>。</p>
+
+<p>设$B$为一事件且$P(B)&gt;0$，事件$A_1,…,A_n$构成一完备事件组，且$P(A_i)&gt;0,i=1,2,…,n$，则有</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation}
+\begin{aligned}
+\\P(A_i|B)&=\frac{P(A_iB)}{P(B)}
+\\&=\frac{P(B|A_i)P(A_i)}{\sum_{i=1}^nP(B|A_i)P(A_i)}
+\end{aligned}
+\end{equation} %]]></script>
+
+<p>上述公式称为贝叶斯公式。</p>
+:ET
