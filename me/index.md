@@ -2,7 +2,7 @@
 layout: article
 titles:
   # @start locale config
-  en      : &EN       About
+  en      : &EN       About Me
   en-GB   : *EN
   en-US   : *EN
   en-CA   : *EN
@@ -27,5 +27,5 @@ key: page-about
 comment: false
 ---
 
-# Hello
+<div>{%- include extensions/netease-cloud-music.html id='1331476697' -%}</div>
 
