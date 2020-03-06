@@ -5,6 +5,10 @@
 <lastmod>2020-03-04T00:00:00+08:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/2020/03/06/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83.html</loc>
+<lastmod>2020-03-06T00:00:00+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/archive/</loc>
 </url>
 <url>
@@ -12,5 +16,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/me/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/me/lshort-cn.pdf</loc>
+<lastmod>2020-03-06T21:05:07+08:00</lastmod>
 </url>
 </urlset>
