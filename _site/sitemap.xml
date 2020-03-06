@@ -18,7 +18,10 @@
 <loc>http://localhost:4000/me/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/me/lshort-cn.pdf</loc>
+<loc>http://localhost:4000/resource/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/resource/files/lshort-cn.pdf</loc>
 <lastmod>2020-03-06T21:05:07+08:00</lastmod>
 </url>
 </urlset>

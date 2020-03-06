@@ -2,16 +2,16 @@
 layout: article
 titles:
   # @start locale config
-  en      : &EN       About Me
+  en      : &EN       Resource
   en-GB   : *EN
   en-US   : *EN
   en-CA   : *EN
   en-AU   : *EN
-  zh-Hans : &ZH_HANS  关于
+  zh-Hans : &ZH_HANS  资源
   zh      : *ZH_HANS
   zh-CN   : *ZH_HANS
   zh-SG   : *ZH_HANS
-  zh-Hant : &ZH_HANT  關於
+  zh-Hant : &ZH_HANT  資源
   zh-TW   : *ZH_HANT
   zh-HK   : *ZH_HANT
   ko      : &KO       소개
@@ -23,12 +23,18 @@ titles:
   fr-FR   : *FR
   fr-LU   : *FR
   # @end locale config
-key: page-about
+key: page-resource
 comment: false
 ---
 
-<div>{%- include extensions/netease-cloud-music.html id='1331476697' -%}</div>
+
+## Web
+
+  - <a href="http://cplusplus.com" target="_blank">cplusplus</a>
 
 
 
+## Book
+
+- <a href="./files/lshort-cn.pdf" target="_blank">Latex 语法</a>
 
