@@ -1,4 +1,4 @@
-I"�<h2 id="web">Web</h2>
+I"�<h2 id="web">Web</h2>
 
 <ul>
   <li><a href="http://cplusplus.com" target="_blank">cplusplus</a></li>
@@ -7,7 +7,7 @@
 <h2 id="book">Book</h2>
 
 <ul>
-  <li><a href="./files/lshort-cn.pdf" target="_blank">Latex 语法</a></li>
+  <li><a href="/resource/files/lshort-cn.pdf" target="_blank">Latex 语法</a></li>
 </ul>
 
 :ET

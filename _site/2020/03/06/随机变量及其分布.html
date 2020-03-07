@@ -3,7 +3,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>随机变量及其分布 - ReFantasy</title>
 
-<meta name="description" content="随机变量设$\Omega$为某一随机试验的样本空间，如果对于每一个样本点$\omega$">
+<meta name="description" content="随机变量设$\Omega$为某一随机试验的样本空间，如果对于每一个样本点$\omega \in \Omega$，有一个实数$X(\omega)$与之对应，这样就定义了一个$\Omega$上的实值函数$X=X(\omega)$，称之为随机变量，简记为$X$。引入随机变量后，随机事件就可以通过随机变量的取值或取值范围...">
 <link rel="canonical" href="http://localhost:4000/2020/03/06/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83.html"><link rel="alternate" type="application/rss+xml" title="ReFantasy" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
@@ -300,7 +300,114 @@
 <!-- end custom article top snippet -->
 <div class="article__content" itemprop="articleBody"><h2 id="随机变量">随机变量</h2>
 
-<p>设$\Omega$为某一随机试验的样本空间，如果对于每一个样本点$\omega$</p>
+<p>设$\Omega$为某一随机试验的样本空间，如果对于每一个样本点$\omega \in \Omega$，有一个实数$X(\omega)$与之对应，这样就定义了一个$\Omega$上的<strong>实值函数$X=X(\omega)$</strong>，称之为随机变量，简记为$X$。引入随机变量后，随机事件就可以通过随机变量的取值或取值范围来表示。随机变量可分为两种类型：离散型与非离散型随机变量。</p>
+
+<blockquote>
+  <p>通俗地讲，随机变量就是一个随机的数，它是对任何的“随机的东西”做的量化。随机的对象可以是任何东西–明天的天气可以是晴、阴、雨，扔硬币的结果可以是正面或者反面，这里本身都没有数字。但是我们要借助概率论来研究它们，而概率论是数学的一部分，要用到数学语言，那么总是写“明天是晴天的概率”就很不方便，于是我们可以把晴、阴、雨贴上标签，叫做0、1、2，然后把明天的天气状况用一个字母X来表示，于是“明天下雨”就变成了“X=2”。这样，这个原本没有数字的随机结果就变成了一个可能的取值为0、1、2的随机数，这就是随机变量。
+链接：https://www.zhihu.com/question/307188808/answer/566226225</p>
+</blockquote>
+
+<h2 id="离散型随机变量">离散型随机变量</h2>
+
+<p>如果随机变量$X$的所有可能取值只有有限个或可列无穷多个，则称$X$为离散型随机变量。</p>
+
+<h3 id="0-1分布">0-1分布</h3>
+
+<p>若随机变量$X$的概率分布为</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>$X$</th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$P$</td>
+      <td>$1-p$</td>
+      <td>$p$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>其中$0&lt;p&lt;1$，则称$X$服从参数为$p$的$0-1$分布或两点分布，记为$X\sim B(1,p)$。</p>
+
+<h3 id="二项分布">二项分布</h3>
+
+<p>若随机变量$X$的概率分布为</p>
+
+<script type="math/tex; mode=display">P\{X=k\}=C_n^kp^k(1-p)^{n-k},\quad k=0,1,2,...,n.</script>
+
+<p>其中$n$是正整数，$0&lt;p&lt;1$，则称$X$服从参数为$n,p$的二项分布，记为$X\sim B(n,p)$。</p>
+
+<p>二项分布源于$n$重伯努利试验，若一次试验中事件$A$发生的概率为$p$，则$n$重伯努利试验中，事件$A$发生的次数$X$的概率分布为</p>
+
+<script type="math/tex; mode=display">P\{ X=k \}=b(k;n,p)=C_n^kp^k(1-p)^{n-k}</script>
+
+<h3 id="泊松分布">泊松分布</h3>
+
+<p>若随机变量$X$的概率分布为</p>
+
+<script type="math/tex; mode=display">P\{X=k\}=\frac{\lambda ^k}{k!}e^{-\lambda},\quad k=0,1,2,...</script>
+
+<p>其中$\lambda &gt;0$，则称$X$服从参数为$\lambda$的泊松分布，记为$X\sim P(\lambda)$。</p>
+
+<p>可使用泊松分布近似二项分布</p>
+
+<script type="math/tex; mode=display">C_n^kp^k(1-p)^{n-k}\approx \frac{\lambda ^k}{k!}e^{-\lambda},\quad \lambda =np</script>
+
+<h2 id="分布函数及其性质">分布函数及其性质</h2>
+
+<h3 id="分布函数的定义">分布函数的定义</h3>
+
+<p>设$X$是一个随机变量，对任意$x\in (-\infty,+\infty)$，令</p>
+
+<script type="math/tex; mode=display">F(x) = P\{X\leq x\}</script>
+
+<p>则称$F(x)$时随机变量$X$的分布函数。</p>
+
+<h3 id="分布函数的性质">分布函数的性质</h3>
+
+<ul>
+  <li>
+    <p>单调性</p>
+
+    <p>$F(x)$是单调不减函数，即当$x_1&lt;x_2$时，有$F(x_1)\leq F(x_2)$</p>
+  </li>
+  <li>
+    <p>有界性</p>
+
+    <p>$0\leq F(x) \leq1 \quad (-\infty&lt;x&lt;+\infty)$，且$F(-\infty)=\lim\limits_{x\to -\infty} {F(x)}=0$，$F(+\infty)=\lim\limits_{x\to +\infty} {F(x)}=1$</p>
+  </li>
+  <li>
+    <p>右连续性，即$F(x+0)=F(x)$，$\forall x\in R$</p>
+  </li>
+</ul>
+
+<h2 id="连续型随机变量">连续型随机变量</h2>
+
+<h3 id="连续型随机变量及其概率密度函数">连续型随机变量及其概率密度函数</h3>
+
+<p>设随机变量$X$的分布函数$F(x)$，如果存在<strong>非负</strong>函数$f(x)$，使得$\forall x \in (-\infty,+\infty)$，都有</p>
+
+<script type="math/tex; mode=display">F(x)=\int_{-\infty}^{x}f(t)d_t</script>
+
+<p>则称$X$为连续型随机变量，$f(x)$为$X$的<strong>概率密度函数</strong>，简称概率密度或密度。</p>
+
+<p>相关性质：</p>
+
+<ul>
+  <li>$f(x)\geq 0,\quad -\infty&lt;x&lt;+\infty $</li>
+  <li>$\int_{-\infty}^{+\infty}f(x)=1$</li>
+  <li>对于$\forall x_1\leq x_2$，$P(x_1&lt;X\leq x_2)$$=\int_{x_1}^{x_2}f(x)d_x = F(x_2)-F(x_1)$</li>
+  <li>若$f(x)$在$x$处连续，则$F^{‘}(x)=f(x)$</li>
+  <li>改变$f(x)$在个别处的值，不影响$F(x)$</li>
+  <li>$\forall x,P(X=x)=\int_x^xf(t)d_t=0$</li>
+</ul>
+
+<p>通常提到离散型随机变量的概率分布指的是其分布律，连续型随机变量的概率分布指的是其概率密度。</p>
 
 </div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2020-03-06T00:00:00+08:00"><!-- start custom article footer snippet -->
 

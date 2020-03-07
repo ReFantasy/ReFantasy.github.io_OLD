@@ -36,5 +36,5 @@ comment: false
 
 ## Book
 
-- <a href="./files/lshort-cn.pdf" target="_blank">Latex 语法</a>
+- <a href="{{page.jsdelivr}}/resource/files/lshort-cn.pdf" target="_blank">Latex 语法</a>
 
