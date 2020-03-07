@@ -2,16 +2,11 @@
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>随机变量及其分布 - ReFantasy</title>
-
 <meta name="description" content="随机变量设$\Omega$为某一随机试验的样本空间，如果对于每一个样本点$\omega \in \Omega$，有一个实数$X(\omega)$与之对应，这样就定义了一个$\Omega$上的实值函数$X=X(\omega)$，称之为随机变量，简记为$X$。引入随机变量后，随机事件就可以通过随机变量的取值或取值范围...">
-<link rel="canonical" href="http://localhost:4000/2020/03/06/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83.html"><link rel="alternate" type="application/rss+xml" title="ReFantasy" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
-
+<link rel="canonical" href="http://localhost:4000/2020/03/06/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83.html"><link rel="alternate" type="application/rss+xml" title="ReFantasy" href="/feed.xml"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
-
 <meta name="theme-color" content="#ffffff">
-<!-- end favicons snippet --><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" ><!-- start custom head snippets -->
-
-<!-- end custom head snippets -->
+<link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
 <script>(function() {
   window.isArray = function(val) {
     return Object.prototype.toString.call(val) === '[object Array]';
@@ -19,20 +14,16 @@
   window.isString = function(val) {
     return typeof val === 'string';
   };
-
   window.hasEvent = function(event) {
     return 'on'.concat(event) in window.document;
   };
-
   window.isOverallScroller = function(node) {
     return node === document.documentElement || node === document.body || node === window;
   };
-
   window.isFormElement = function(node) {
     var tagName = node.tagName;
     return tagName === 'INPUT' || tagName === 'SELECT' || tagName === 'TEXTAREA';
   };
-
   window.pageLoad = (function () {
     var loaded = false, cbs = [];
     window.addEventListener('load', function () {
@@ -54,7 +45,6 @@
 (function() {
   window.throttle = function(func, wait) {
     var args, result, thisArg, timeoutId, lastCalled = 0;
-
     function trailingCall() {
       lastCalled = new Date;
       timeoutId = null;
@@ -63,10 +53,8 @@
     return function() {
       var now = new Date,
         remaining = wait - (now - lastCalled);
-
       args = arguments;
       thisArg = this;
-
       if (remaining <= 0) {
         clearTimeout(timeoutId);
         timeoutId = null;
@@ -92,7 +80,6 @@
       data.push(item);
       return data;
     };
-
     var Set = function(data) {
       this.size = 0;
       this._data = [];
@@ -133,7 +120,6 @@
     };
     return Set;
   })();
-
   window.Lazyload = (function(doc) {
     var queue = {js: [], css: []}, sources = {js: {}, css: {}}, context = this;
     var createNode = function(name, attrs) {
@@ -255,7 +241,6 @@
   <body>
     <div class="root" data-is-touch="false">
       <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
-
       <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
       <div class="header__title">
         <div class="header__brand"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -269,8 +254,6 @@
 <a title="" href="/">ReFantasy</a></div><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></div><nav class="navigation">
         <ul><li class="navigation__item"><a href="/archive">Archive</a></li><li class="navigation__item"><a href="/resource">Resource</a></li><li class="navigation__item"><a href="/me">Me</a></li><li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li></ul>
       </nav></div>
-    
-    <!--    百度站点统计       -->
     <script>
     var _hmt = _hmt || [];
     (function() {
@@ -280,41 +263,27 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
-
               <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
 </aside></div>
-
-              <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
-
-<!-- end custom main top snippet -->
+              <div class="col-main cell cell--auto">
 <article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>随机变量及其分布</h1></header></div><meta itemprop="headline" content="随机变量及其分布"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1">概率论与数理统计</a>
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Mar 06, 2020</span>
             </li></ul></div><meta itemprop="author" content="Tan Dongliang"/><meta itemprop="datePublished" content="2020-03-06T00:00:00+08:00">
-    <meta itemprop="keywords" content="概率论与数理统计"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
-
-<!-- end custom article top snippet -->
+    <meta itemprop="keywords" content="概率论与数理统计"><div class="js-article-content"><div class="layout--article">
 <div class="article__content" itemprop="articleBody"><h2 id="随机变量">随机变量</h2>
-
 <p>设$\Omega$为某一随机试验的样本空间，如果对于每一个样本点$\omega \in \Omega$，有一个实数$X(\omega)$与之对应，这样就定义了一个$\Omega$上的<strong>实值函数$X=X(\omega)$</strong>，称之为随机变量，简记为$X$。引入随机变量后，随机事件就可以通过随机变量的取值或取值范围来表示。随机变量可分为两种类型：离散型与非离散型随机变量。</p>
-
 <blockquote>
   <p>通俗地讲，随机变量就是一个随机的数，它是对任何的“随机的东西”做的量化。随机的对象可以是任何东西–明天的天气可以是晴、阴、雨，扔硬币的结果可以是正面或者反面，这里本身都没有数字。但是我们要借助概率论来研究它们，而概率论是数学的一部分，要用到数学语言，那么总是写“明天是晴天的概率”就很不方便，于是我们可以把晴、阴、雨贴上标签，叫做0、1、2，然后把明天的天气状况用一个字母X来表示，于是“明天下雨”就变成了“X=2”。这样，这个原本没有数字的随机结果就变成了一个可能的取值为0、1、2的随机数，这就是随机变量。
 链接：https://www.zhihu.com/question/307188808/answer/566226225</p>
 </blockquote>
-
 <h2 id="离散型随机变量">离散型随机变量</h2>
-
 <p>如果随机变量$X$的所有可能取值只有有限个或可列无穷多个，则称$X$为离散型随机变量。</p>
-
 <h3 id="0-1分布">0-1分布</h3>
-
 <p>若随机变量$X$的概率分布为</p>
-
 <table>
   <thead>
     <tr>
@@ -331,73 +300,44 @@
     </tr>
   </tbody>
 </table>
-
 <p>其中$0&lt;p&lt;1$，则称$X$服从参数为$p$的$0-1$分布或两点分布，记为$X\sim B(1,p)$。</p>
-
 <h3 id="二项分布">二项分布</h3>
-
 <p>若随机变量$X$的概率分布为</p>
-
 <script type="math/tex; mode=display">P\{X=k\}=C_n^kp^k(1-p)^{n-k},\quad k=0,1,2,...,n.</script>
-
 <p>其中$n$是正整数，$0&lt;p&lt;1$，则称$X$服从参数为$n,p$的二项分布，记为$X\sim B(n,p)$。</p>
-
 <p>二项分布源于$n$重伯努利试验，若一次试验中事件$A$发生的概率为$p$，则$n$重伯努利试验中，事件$A$发生的次数$X$的概率分布为</p>
-
 <script type="math/tex; mode=display">P\{ X=k \}=b(k;n,p)=C_n^kp^k(1-p)^{n-k}</script>
-
 <h3 id="泊松分布">泊松分布</h3>
-
 <p>若随机变量$X$的概率分布为</p>
-
 <script type="math/tex; mode=display">P\{X=k\}=\frac{\lambda ^k}{k!}e^{-\lambda},\quad k=0,1,2,...</script>
-
 <p>其中$\lambda &gt;0$，则称$X$服从参数为$\lambda$的泊松分布，记为$X\sim P(\lambda)$。</p>
-
 <p>可使用泊松分布近似二项分布</p>
-
 <script type="math/tex; mode=display">C_n^kp^k(1-p)^{n-k}\approx \frac{\lambda ^k}{k!}e^{-\lambda},\quad \lambda =np</script>
-
 <h2 id="分布函数及其性质">分布函数及其性质</h2>
-
 <h3 id="分布函数的定义">分布函数的定义</h3>
-
 <p>设$X$是一个随机变量，对任意$x\in (-\infty,+\infty)$，令</p>
-
 <script type="math/tex; mode=display">F(x) = P\{X\leq x\}</script>
-
 <p>则称$F(x)$时随机变量$X$的分布函数。</p>
-
 <h3 id="分布函数的性质">分布函数的性质</h3>
-
 <ul>
   <li>
     <p>单调性</p>
-
     <p>$F(x)$是单调不减函数，即当$x_1&lt;x_2$时，有$F(x_1)\leq F(x_2)$</p>
   </li>
   <li>
     <p>有界性</p>
-
     <p>$0\leq F(x) \leq1 \quad (-\infty&lt;x&lt;+\infty)$，且$F(-\infty)=\lim\limits_{x\to -\infty} {F(x)}=0$，$F(+\infty)=\lim\limits_{x\to +\infty} {F(x)}=1$</p>
   </li>
   <li>
     <p>右连续性，即$F(x+0)=F(x)$，$\forall x\in R$</p>
   </li>
 </ul>
-
 <h2 id="连续型随机变量">连续型随机变量</h2>
-
 <h3 id="连续型随机变量及其概率密度函数">连续型随机变量及其概率密度函数</h3>
-
 <p>设随机变量$X$的分布函数$F(x)$，如果存在<strong>非负</strong>函数$f(x)$，使得$\forall x \in (-\infty,+\infty)$，都有</p>
-
 <script type="math/tex; mode=display">F(x)=\int_{-\infty}^{x}f(t)d_t</script>
-
 <p>则称$X$为连续型随机变量，$f(x)$为$X$的<strong>概率密度函数</strong>，简称概率密度或密度。</p>
-
 <p>相关性质：</p>
-
 <ul>
   <li>$f(x)\geq 0,\quad -\infty&lt;x&lt;+\infty $</li>
   <li>$\int_{-\infty}^{+\infty}f(x)=1$</li>
@@ -406,18 +346,12 @@
   <li>改变$f(x)$在个别处的值，不影响$F(x)$</li>
   <li>$\forall x,P(X=x)=\int_x^xf(t)d_t=0$</li>
 </ul>
-
 <p>通常提到离散型随机变量的概率分布指的是其分布律，连续型随机变量的概率分布指的是其概率密度。</p>
-
-</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2020-03-06T00:00:00+08:00"><!-- start custom article footer snippet -->
-
-<!-- end custom article footer snippet -->
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2020-03-06T00:00:00+08:00">
 <div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">Subscribe</a></div>
 </div><div class="article__license"></div></footer>
 <div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/2020/03/04/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87.html">随机事件与概率</a></div></div></div>
-
 </div>
-
 <script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
   window.Lazyload.js(SOURCES.jquery, function() {
@@ -427,7 +361,6 @@
       var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
       var scroll = hasSidebar ? '.js-page-main' : 'html, body';
       $scroll = $(scroll);
-
       $articleContent.find('.highlight').each(function() {
         $this = $(this);
         $this.attr('data-lang', $this.find('code').attr('data-lang'));
@@ -443,9 +376,7 @@
   });
 })();
 </script>
-</div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
-
-<!-- end custom main bottom snippet -->
+</div><section class="page__comments d-print-none"></section></article>
 </div>
             </div></div></div><div class="page__footer d-print-none">
 <footer class="footer py-4 js-page-footer">
@@ -474,10 +405,6 @@
     </div><div class="site-info mt-2">
       <div>Copyright © ReFantasy 2016 ~ 2020.
         All rights reserved.
-        <!-- 
-          Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> & <a
-          title="TeXt is a super customizable Jekyll theme." href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.
-       -->
       </div>
     </div>
   </div>
@@ -555,22 +482,18 @@
     var search = (window.search || (window.search = {}));
     var useDefaultSearchBox = window.useDefaultSearchBox === undefined ?
       true : window.useDefaultSearchBox ;
-
     var $searchModal = $('.js-page-search-modal');
     var $searchToggle = $('.js-search-toggle');
     var searchModal = $searchModal.modal({ onChange: handleModalChange, hideWhenWindowScroll: true });
     var modalVisible = false;
     search.searchModal = searchModal;
-
     var $searchBox = null;
     var $searchInput = null;
     var $searchClear = null;
-
     function getModalVisible() {
       return modalVisible;
     }
     search.getModalVisible = getModalVisible;
-
     function handleModalChange(visible) {
       modalVisible = visible;
       if (visible) {
@@ -586,7 +509,6 @@
         }, 400);
       }
     }
-
     $searchToggle.on('click', function() {
       modalVisible ? searchModal.hide() : searchModal.show();
     });
@@ -596,7 +518,6 @@
         modalVisible || searchModal.show();
       }
     });
-
     if (useDefaultSearchBox) {
       $searchBox = $('.js-search-box');
       $searchInput = $searchBox.children('input');
@@ -610,7 +531,6 @@
       search.setVal = function(val) {
         $searchInput.val(val);
       };
-
       $searchInput.on('focus', function() {
         $(this).addClass('focus');
       });
@@ -655,7 +575,6 @@ var PAHTS = window.TEXT_VARIABLES.paths;
 window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
   var search = (window.search || (window.search = {}));
   var searchData = window.TEXT_SEARCH_DATA || {};
-
   function memorize(f) {
     var cache = {};
     return function () {
@@ -664,7 +583,6 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
       else return cache[key] = f.apply(this, arguments);
     };
   }
-
   /// search
   function searchByQuery(query) {
     var i, j, key, keys, cur, _title, result = {};
@@ -684,15 +602,12 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
     }
     return result;
   }
-
   var renderHeader = memorize(function(header) {
     return $('<p class="search-result__header">' + header + '</p>');
   });
-
   var renderItem = function(index, title, url) {
     return $('<li class="search-result__item" data-index="' + index + '"><a class="button" href="' + url + '">' + title + '</a></li>');
   };
-
   function render(data) {
     if (!data) { return null; }
     var $root = $('<ul></ul>'), i, j, key, keys, cur, itemIndex = 0;
@@ -707,11 +622,9 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
     }
     return $root;
   }
-
   // search box
   var $result = $('.js-search-result'), $resultItems;
   var lastActiveIndex, activeIndex;
-
   function clear() {
     $result.html(null);
     $resultItems = $('.search-result__item'); activeIndex = 0;
@@ -721,15 +634,12 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
     $resultItems = $('.search-result__item'); activeIndex = 0;
     $resultItems.eq(0).addClass('active');
   }
-
   search.clear = clear;
   search.onInputNotEmpty = onInputNotEmpty;
-
   function updateResultItems() {
     lastActiveIndex >= 0 && $resultItems.eq(lastActiveIndex).removeClass('active');
     activeIndex >= 0 && $resultItems.eq(activeIndex).addClass('active');
   }
-
   function moveActiveIndex(direction) {
     var itemsCount = $resultItems ? $resultItems.length : 0;
     if (itemsCount > 1) {
@@ -742,7 +652,6 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
       updateResultItems();
     }
   }
-
   // Char Code: 13  Enter, 37  ⬅, 38  ⬆, 39  ➡, 40  ⬇
   $(window).on('keyup', function(e) {
     var modalVisible = search.getModalVisible && search.getModalVisible();
@@ -756,7 +665,6 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
       }
     }
   });
-
   $result.on('mouseover', '.search-result__item > a', function() {
     var itemIndex = $(this).parent().data('index');
     itemIndex >= 0 && (lastActiveIndex = activeIndex, activeIndex = itemIndex, updateResultItems());
@@ -764,8 +672,6 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 });
 </script>
 </div></div>
-
-
 <script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
   window.Lazyload.js(SOURCES.jquery, function() {
@@ -787,7 +693,6 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
         offsetBottom = 0, scrollTarget = window, scroll = window.document, disabled = false, isOverallScroller = true,
         rootTop, rootLeft, rootHeight, scrollBottom, rootBottomTop,
         hasInit = false, curState;
-
       function setOptions(options) {
         var _options = options || {};
         _options.offsetBottom && (offsetBottom = _options.offsetBottom);
@@ -872,7 +777,6 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
           hasInit = true;
         }
       }
-
       setOptions(options);
       if (!disabled) {
         init();
@@ -897,7 +801,6 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
       var $root = this, $window = $(window), $scrollTarget, $scroller, $tocUl = $('<ul class="toc toc--ellipsis"></ul>'), $tocLi, $headings, $activeLast, $activeCur,
         selectors = 'h1,h2,h3', container = 'body', scrollTarget = window, scroller = 'html, body', disabled = false,
         headingsPos, scrolling = false, hasRendered = false, hasInit = false;
-
       function setOptions(options) {
         var _options = options || {};
         _options.selectors && (selectors = _options.selectors);
@@ -982,7 +885,6 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
         }
         hasInit = true;
       }
-
       setOptions(options);
       if (!disabled) {
         init();
@@ -998,7 +900,6 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
   });
 })();
 /*(function () {
-
 })();*/
 </script><script>
   /* toc must before affix, since affix need to konw toc' height. */(function() {
@@ -1012,13 +913,10 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
     var tocDisabled = false;
     var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
     var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
-
     function disabled() {
       return $col2.css('display') === 'none' || !hasToc;
     }
-
     tocDisabled = disabled();
-
     toc = $tocRoot.toc({
       selectors: TOC_SELECTOR,
       container: $articleContent,
@@ -1026,14 +924,12 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
       scroller: hasSidebar ? '.js-page-main' : null,
       disabled: tocDisabled
     });
-
     $window.on('resize', window.throttle(function() {
       tocDisabled = disabled();
       toc && toc.setOptions({
         disabled: tocDisabled
       });
     }, 100));
-
   });
 })();
 (function() {
@@ -1044,7 +940,6 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
     var affix;
     var tocDisabled = false;
     var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
-
     affix = $pageAside.affix({
       offsetBottom: $pageFooter.outerHeight(),
       scrollTarget: hasSidebar ? '.js-page-main' : null,
@@ -1052,13 +947,11 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
       scroll: hasSidebar ? $('.js-page-main').children() : null,
       disabled: tocDisabled
     });
-
     $window.on('resize', window.throttle(function() {
       affix && affix.setOptions({
         disabled: tocDisabled
       });
     }, 100));
-
     window.pageAsideAffix = affix;
   });
 })();
@@ -1089,7 +982,6 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
     mermaid.init(undefined, '.language-mermaid');
   });
 </script>
-
     </div>
     <script>(function () {
   var $root = document.getElementsByClassName('root')[0];
@@ -1101,4 +993,3 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 </script>
   </body>
 </html>
-
