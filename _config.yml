@@ -228,6 +228,16 @@ plugins:
 sass:
     style: compressed
     
+#compress_html:
+#    blanklines: true
+#    comments: ["<!-- ", " -->"]
+
 compress_html:
-    blanklines: true
+    clippings: all
     comments: ["<!-- ", " -->"]
+    endings: all
+    ignore:
+      envs: [local]
+    blanklines: true
+    profile: true
+    startings: [html, head, body]
