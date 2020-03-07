@@ -27,7 +27,6 @@ key: page-about
 comment: false
 ---
 
-<div><audio src="{{page.jsdelivr}}/me/秘密花园.mp3" controls="controls"></audio></div>
+<div><audio src="https://cdn.jsdelivr.net/gh/ReFantasy/ReFantasy.github.io/me/秘密花园.mp3" controls="controls"></audio></div>
 
-jsdelivr: https://cdn.jsdelivr.net/gh/ReFantasy/ReFantasy.github.io
 
