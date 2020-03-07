@@ -29,8 +29,8 @@ comment: false
 
 <div>{%- include extensions/netease-cloud-music.html id='1331476697' -%}</div>
 
-<div><audio src="{{page.jsdelivr}}/me/秘密花园.mp3" controls="controls"></audio></div>
+<div><audio src="https://cdn.jsdelivr.net/gh/ReFantasy/ReFantasy.github.io/me/秘密花园.mp3" controls="controls"></audio></div>
 
-
+jsdelivr: https://cdn.jsdelivr.net/gh/ReFantasy/ReFantasy.github.io
 
 
