@@ -29,7 +29,7 @@ comment: false
 
 <div>{%- include extensions/netease-cloud-music.html id='1331476697' -%}</div>
 
-<div><audio src="秘密花园.mp3" controls="controls"></audio></div>
+<div><audio src="{{page.jsdelivr}}/me/秘密花园.mp3" controls="controls"></audio></div>
 
 
 
