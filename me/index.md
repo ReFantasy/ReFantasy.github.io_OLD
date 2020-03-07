@@ -1,6 +1,5 @@
 ---
 layout: article
-jsdelivr: https://cdn.jsdelivr.net/gh/ReFantasy/ReFantasy.github.io
 titles:
   # @start locale config
   en      : &EN       About Me
@@ -30,6 +29,5 @@ comment: false
 
 <div><audio src="{{page.jsdelivr}}/me/秘密花园.mp3" controls="controls"></audio></div>
 
-
-1
+jsdelivr: https://cdn.jsdelivr.net/gh/ReFantasy/ReFantasy.github.io
 
