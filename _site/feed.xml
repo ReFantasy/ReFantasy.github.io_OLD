@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN# the language of your site, default as "en""><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN# the language of your site, default as "en"" /><updated>2020-03-07T21:37:54+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ReFantasy</title><author><name>Tan Dongliang</name><email>2016100532@mails.cust.edu.cn</email></author><entry><title type="html">随机变量及其分布</title><link href="http://localhost:4000/2020/03/06/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83.html" rel="alternate" type="text/html" title="随机变量及其分布" /><published>2020-03-06T00:00:00+08:00</published><updated>2020-03-06T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/06/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83</id><content type="html" xml:base="http://localhost:4000/2020/03/06/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83.html">&lt;h2 id=&quot;随机变量&quot;&gt;随机变量&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN# the language of your site, default as "en""><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN# the language of your site, default as "en"" /><updated>2020-03-09T16:56:31+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ReFantasy</title><author><name>Tan Dongliang</name><email>2016100532@mails.cust.edu.cn</email></author><entry><title type="html">二维随机变量及其分布</title><link href="http://localhost:4000/2020/03/08/%E4%BA%8C%E7%BB%B4%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83.html" rel="alternate" type="text/html" title="二维随机变量及其分布" /><published>2020-03-08T00:00:00+08:00</published><updated>2020-03-08T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/08/%E4%BA%8C%E7%BB%B4%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83</id><content type="html" xml:base="http://localhost:4000/2020/03/08/%E4%BA%8C%E7%BB%B4%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83.html">&lt;h2 id=&quot;二维随机变量的概念及其分布&quot;&gt;二维随机变量的概念及其分布&lt;/h2&gt;
+
+&lt;p&gt;设$\Omega={\omega}$是随机试验$T$的样本空间，$X$和$Y$是定义在$\Omega$上的两个随机变量，由$X$和$Y$构成的一个向量，$(X,Y)$叫做二维随机向量或二维随机变量。对于任意实数$x$和$y$，二元函数&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{equation}
+\begin{aligned}
+F(x,y)&amp;=P\{X\leq x \cap Y\leq y\} \\
+      &amp;=P\{X\leq x , Y\leq y\} 
+\end{aligned}
+\end{equation} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;称为二维随机变量$(X,Y)$的分布函数或联合分布函数。对于任意$n$个实数$x_1,x_2,…,x_n$的$n$元函数$F(x_1,x_2,…,x_n)=P{X_1\leq x_1,X_2\leq x_2,…,X_n\leq x_n}$叫做$n$维随机向量或$n$维随机变量。&lt;/p&gt;
+
+&lt;p&gt;如果存在非负函数$f(x,y)$，使得对于任意的实数$x$，$y$，均有&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;F(x,y)=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}f(u,v)d_u d_v&lt;/script&gt;
+
+&lt;p&gt;则称$(X,Y)$为二维连续型随机变量，$f(x,y)$为概率密度函数或联合概率密度函数。&lt;/p&gt;
+
+&lt;h2 id=&quot;边缘分布&quot;&gt;边缘分布&lt;/h2&gt;
+
+&lt;p&gt;二维随机变量的分布函数$F(x,y)$既包含了$X$和$Y$的一切信息，又包含了$X$和$Y$之间关系的一切信息。我们称其分量$X$和$Y$的分布函数为二维随机变量$(X,Y)$关于$X$和$Y$的边缘分布函数，分别记作$F_X(x)$和$F_Y(y)$，边缘分布函数可以由$(X,Y)$的联合分布函数$F(x,y)$来确定&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{equation}
+F_X(x)=\lim\limits_{y \to +\infty}F(x,y)=F(x,+\infty)
+\\F_Y(y)=\lim\limits_{x \to +\infty}F(x,y)=F(+\infty,y)
+\end{equation}&lt;/script&gt;
+
+&lt;p&gt;则有&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{equation}
+\begin{aligned}
+F_X(x)&amp;=\lim\limits_{y \to +\infty}F(x,y)\\
+      &amp;=\int_{-\infty}^{+\infty}\int_{-\infty}^{x}f(x,y)d_u d_v\\
+      &amp;=\int_{-\infty}^{x}\int_{-\infty}^{+\infty}f(x,y)d_v d_u
+\end{aligned}
+\end{equation} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;由此可知，$X$，$Y$的边缘概率密度函数为&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f_X(x)=F_X^{'}(x)=\int_{-\infty}^{+\infty}f(x,y)d_y\\
+f_Y(y)=F_Y^{'}(y)=\int_{-\infty}^{+\infty}f(x,y)d_x&lt;/script&gt;
+
+&lt;h2 id=&quot;条件分布&quot;&gt;条件分布&lt;/h2&gt;
+
+&lt;p&gt;给定$X=x$的条件下，随机变量$Y$的条件分布函数和条件概率密度为&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{equation}
+\begin{aligned}
+F_{Y|X}(y|x)&amp;=\int_{-\infty}^{y}\frac{f(x,v)}{f_X(x)}d_v\\
+f_{Y|X}(y|x)&amp;=\frac{f(x,y)}{f_Y(y)}
+\end{aligned}
+\end{equation} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;证明略。&lt;/p&gt;
+
+&lt;h2 id=&quot;相互独立性&quot;&gt;相互独立性&lt;/h2&gt;
+
+&lt;p&gt;若随机变量$X$和$Y$相互独立，则有&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{equation}
+\begin{aligned}
+F(x,y)&amp;=F_X(x)F_Y(y)\\
+f(x,y)&amp;=f_X(x)f_Y(y)
+\end{aligned}
+\end{equation} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;成立。&lt;/p&gt;
+
+&lt;p&gt;进一步推广可得，随机变量$X$和$Y$相互独立的充分必要条件为
+&lt;script type=&quot;math/tex&quot;&gt;f(x,y)=h(x)g(y)&lt;/script&gt;
+.其中，$h(x)、g(y)$分别为$x、y$的函数。&lt;/p&gt;</content><author><name>Tan Dongliang</name><email>2016100532@mails.cust.edu.cn</email></author><category term="概率论与数理统计" /><summary type="html">二维随机变量的概念及其分布 设$\Omega={\omega}$是随机试验$T$的样本空间，$X$和$Y$是定义在$\Omega$上的两个随机变量，由$X$和$Y$构成的一个向量，$(X,Y)$叫做二维随机向量或二维随机变量。对于任意实数$x$和$y$，二元函数 称为二维随机变量$(X,Y)$的分布函数或联合分布函数。对于任意$n$个实数$x_1,x_2,…,x_n$的$n$元函数$F(x_1,x_2,…,x_n)=P{X_1\leq x_1,X_2\leq x_2,…,X_n\leq x_n}$叫做$n$维随机向量或$n$维随机变量。 如果存在非负函数$f(x,y)$，使得对于任意的实数$x$，$y$，均有 则称$(X,Y)$为二维连续型随机变量，$f(x,y)$为概率密度函数或联合概率密度函数。 边缘分布 二维随机变量的分布函数$F(x,y)$既包含了$X$和$Y$的一切信息，又包含了$X$和$Y$之间关系的一切信息。我们称其分量$X$和$Y$的分布函数为二维随机变量$(X,Y)$关于$X$和$Y$的边缘分布函数，分别记作$F_X(x)$和$F_Y(y)$，边缘分布函数可以由$(X,Y)$的联合分布函数$F(x,y)$来确定 则有 由此可知，$X$，$Y$的边缘概率密度函数为 条件分布 给定$X=x$的条件下，随机变量$Y$的条件分布函数和条件概率密度为 证明略。 相互独立性 若随机变量$X$和$Y$相互独立，则有 成立。 进一步推广可得，随机变量$X$和$Y$相互独立的充分必要条件为 .其中，$h(x)、g(y)$分别为$x、y$的函数。</summary></entry><entry><title type="html">随机变量及其分布</title><link href="http://localhost:4000/2020/03/06/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83.html" rel="alternate" type="text/html" title="随机变量及其分布" /><published>2020-03-06T00:00:00+08:00</published><updated>2020-03-06T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/06/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83</id><content type="html" xml:base="http://localhost:4000/2020/03/06/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83.html">&lt;h2 id=&quot;随机变量&quot;&gt;随机变量&lt;/h2&gt;
 
 &lt;p&gt;设$\Omega$为某一随机试验的样本空间，如果对于每一个样本点$\omega \in \Omega$，有一个实数$X(\omega)$与之对应，这样就定义了一个$\Omega$上的&lt;strong&gt;实值函数$X=X(\omega)$&lt;/strong&gt;，称之为随机变量，简记为$X$。引入随机变量后，随机事件就可以通过随机变量的取值或取值范围来表示。随机变量可分为两种类型：离散型与非离散型随机变量。&lt;/p&gt;
 
@@ -107,7 +182,63 @@
   &lt;li&gt;$\forall x,P(X=x)=\int_x^xf(t)d_t=0$&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;通常提到离散型随机变量的概率分布指的是其分布律，连续型随机变量的概率分布指的是其概率密度。&lt;/p&gt;</content><author><name>Tan Dongliang</name><email>2016100532@mails.cust.edu.cn</email></author><category term="概率论与数理统计" /><summary type="html">随机变量 设$\Omega$为某一随机试验的样本空间，如果对于每一个样本点$\omega \in \Omega$，有一个实数$X(\omega)$与之对应，这样就定义了一个$\Omega$上的实值函数$X=X(\omega)$，称之为随机变量，简记为$X$。引入随机变量后，随机事件就可以通过随机变量的取值或取值范围来表示。随机变量可分为两种类型：离散型与非离散型随机变量。 通俗地讲，随机变量就是一个随机的数，它是对任何的“随机的东西”做的量化。随机的对象可以是任何东西–明天的天气可以是晴、阴、雨，扔硬币的结果可以是正面或者反面，这里本身都没有数字。但是我们要借助概率论来研究它们，而概率论是数学的一部分，要用到数学语言，那么总是写“明天是晴天的概率”就很不方便，于是我们可以把晴、阴、雨贴上标签，叫做0、1、2，然后把明天的天气状况用一个字母X来表示，于是“明天下雨”就变成了“X=2”。这样，这个原本没有数字的随机结果就变成了一个可能的取值为0、1、2的随机数，这就是随机变量。 链接：https://www.zhihu.com/question/307188808/answer/566226225 离散型随机变量 如果随机变量$X$的所有可能取值只有有限个或可列无穷多个，则称$X$为离散型随机变量。 0-1分布 若随机变量$X$的概率分布为 $X$ 0 1 $P$ $1-p$ $p$ 其中$0&amp;lt;p&amp;lt;1$，则称$X$服从参数为$p$的$0-1$分布或两点分布，记为$X\sim B(1,p)$。 二项分布 若随机变量$X$的概率分布为 其中$n$是正整数，$0&amp;lt;p&amp;lt;1$，则称$X$服从参数为$n,p$的二项分布，记为$X\sim B(n,p)$。 二项分布源于$n$重伯努利试验，若一次试验中事件$A$发生的概率为$p$，则$n$重伯努利试验中，事件$A$发生的次数$X$的概率分布为 泊松分布 若随机变量$X$的概率分布为 其中$\lambda &amp;gt;0$，则称$X$服从参数为$\lambda$的泊松分布，记为$X\sim P(\lambda)$。 可使用泊松分布近似二项分布 分布函数及其性质 分布函数的定义 设$X$是一个随机变量，对任意$x\in (-\infty,+\infty)$，令 则称$F(x)$时随机变量$X$的分布函数。 分布函数的性质 单调性 $F(x)$是单调不减函数，即当$x_1&amp;lt;x_2$时，有$F(x_1)\leq F(x_2)$ 有界性 $0\leq F(x) \leq1 \quad (-\infty&amp;lt;x&amp;lt;+\infty)$，且$F(-\infty)=\lim\limits_{x\to -\infty} {F(x)}=0$，$F(+\infty)=\lim\limits_{x\to +\infty} {F(x)}=1$ 右连续性，即$F(x+0)=F(x)$，$\forall x\in R$ 连续型随机变量 连续型随机变量及其概率密度函数 设随机变量$X$的分布函数$F(x)$，如果存在非负函数$f(x)$，使得$\forall x \in (-\infty,+\infty)$，都有 则称$X$为连续型随机变量，$f(x)$为$X$的概率密度函数，简称概率密度或密度。 相关性质： $f(x)\geq 0,\quad -\infty&amp;lt;x&amp;lt;+\infty $ $\int_{-\infty}^{+\infty}f(x)=1$ 对于$\forall x_1\leq x_2$，$P(x_1&amp;lt;X\leq x_2)$$=\int_{x_1}^{x_2}f(x)d_x = F(x_2)-F(x_1)$ 若$f(x)$在$x$处连续，则$F^{‘}(x)=f(x)$ 改变$f(x)$在个别处的值，不影响$F(x)$ $\forall x,P(X=x)=\int_x^xf(t)d_t=0$ 通常提到离散型随机变量的概率分布指的是其分布律，连续型随机变量的概率分布指的是其概率密度。</summary></entry><entry><title type="html">随机事件与概率</title><link href="http://localhost:4000/2020/03/04/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87.html" rel="alternate" type="text/html" title="随机事件与概率" /><published>2020-03-04T00:00:00+08:00</published><updated>2020-03-04T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/04/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87</id><content type="html" xml:base="http://localhost:4000/2020/03/04/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87.html">&lt;h2 id=&quot;事件之间的关系&quot;&gt;事件之间的关系&lt;/h2&gt;
+&lt;p&gt;通常提到离散型随机变量的概率分布指的是其分布律，连续型随机变量的概率分布指的是其概率密度。&lt;/p&gt;
+
+&lt;h3 id=&quot;常见的连续型随机变量的分布&quot;&gt;常见的连续型随机变量的分布&lt;/h3&gt;
+
+&lt;h4 id=&quot;均匀分布&quot;&gt;均匀分布&lt;/h4&gt;
+
+&lt;p&gt;随机变量$X$的概率密度为&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+f(x) = \left\{ \begin{array}{ll}
+ \frac{1}{b-a}&amp; {a\leq x \leq b }\\
+ 0 &amp; \textrm{其他}
+\end{array} \right. %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;则称$X$服从$[a，b]$上的均匀分布，记为$X \sim U[a,b]$.&lt;/p&gt;
+
+&lt;h4 id=&quot;指数分布&quot;&gt;指数分布&lt;/h4&gt;
+
+&lt;p&gt;随机变量$X$的概率密度为&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+f(x) = \left\{ \begin{array}{}
+ \lambda e^{-\lambda x}&amp; { x &gt;0 }\\
+ 0 &amp; {x\leq 0}
+\end{array} \right. %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;则称$X$服均参数为$\lambda$的指数分布，记为$X \sim Exp(\lambda)$.&lt;/p&gt;
+
+&lt;h4 id=&quot;正态分布&quot;&gt;正态分布&lt;/h4&gt;
+
+&lt;p&gt;随机变量$X$的概率密度为&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}, \quad -\infty&lt;x&lt;+\infty %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;其中，$\mu$、$\sigma$是常数，且$\sigma &amp;gt;0$，则称$X$服均参数为$\mu,\sigma$的正态分布，记为$X \sim N(\mu,\sigma^2)$.&lt;/p&gt;
+
+&lt;p&gt;特别地，当$\mu = 0$，$\sigma = 1$时，称$X$服从标准正态分布，其概率密度函数和分布函数分别用$\varphi(x)$和$\Phi(x)$表示。有$\varphi(0)=0.5$和$\Phi(-x)=1-\Phi(-x)$。&lt;/p&gt;
+
+&lt;p&gt;设$X \sim N(\mu,\sigma^2)$，则&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+Y&amp;=kX+b \sim N(k\mu +b,k^2\sigma^2)
+\\Y&amp;=\frac{x-\mu}{\sigma} \sim N(0,1)
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;由上式可知，正态随机变量的线性函数也服从正态分布，且非标准正态分布可以转化为标准正态分布计算概率密度的值。&lt;/p&gt;
+
+&lt;h3 id=&quot;随机变量的函数的分布&quot;&gt;随机变量的函数的分布&lt;/h3&gt;
+
+&lt;p&gt;当$X$是连续型随机变量时，求$Y=g(X)$的概率密度的一般方法是：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;先求$Y$的分布函数$F_y(y)$的表达式&lt;/li&gt;
+  &lt;li&gt;再对$F_y(y)$求导，得$Y$得概率密度函数&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Tan Dongliang</name><email>2016100532@mails.cust.edu.cn</email></author><category term="概率论与数理统计" /><summary type="html">随机变量 设$\Omega$为某一随机试验的样本空间，如果对于每一个样本点$\omega \in \Omega$，有一个实数$X(\omega)$与之对应，这样就定义了一个$\Omega$上的实值函数$X=X(\omega)$，称之为随机变量，简记为$X$。引入随机变量后，随机事件就可以通过随机变量的取值或取值范围来表示。随机变量可分为两种类型：离散型与非离散型随机变量。 通俗地讲，随机变量就是一个随机的数，它是对任何的“随机的东西”做的量化。随机的对象可以是任何东西–明天的天气可以是晴、阴、雨，扔硬币的结果可以是正面或者反面，这里本身都没有数字。但是我们要借助概率论来研究它们，而概率论是数学的一部分，要用到数学语言，那么总是写“明天是晴天的概率”就很不方便，于是我们可以把晴、阴、雨贴上标签，叫做0、1、2，然后把明天的天气状况用一个字母X来表示，于是“明天下雨”就变成了“X=2”。这样，这个原本没有数字的随机结果就变成了一个可能的取值为0、1、2的随机数，这就是随机变量。 链接：https://www.zhihu.com/question/307188808/answer/566226225 离散型随机变量 如果随机变量$X$的所有可能取值只有有限个或可列无穷多个，则称$X$为离散型随机变量。 0-1分布 若随机变量$X$的概率分布为 $X$ 0 1 $P$ $1-p$ $p$ 其中$0&amp;lt;p&amp;lt;1$，则称$X$服从参数为$p$的$0-1$分布或两点分布，记为$X\sim B(1,p)$。 二项分布 若随机变量$X$的概率分布为 其中$n$是正整数，$0&amp;lt;p&amp;lt;1$，则称$X$服从参数为$n,p$的二项分布，记为$X\sim B(n,p)$。 二项分布源于$n$重伯努利试验，若一次试验中事件$A$发生的概率为$p$，则$n$重伯努利试验中，事件$A$发生的次数$X$的概率分布为 泊松分布 若随机变量$X$的概率分布为 其中$\lambda &amp;gt;0$，则称$X$服从参数为$\lambda$的泊松分布，记为$X\sim P(\lambda)$。 可使用泊松分布近似二项分布 分布函数及其性质 分布函数的定义 设$X$是一个随机变量，对任意$x\in (-\infty,+\infty)$，令 则称$F(x)$时随机变量$X$的分布函数。 分布函数的性质 单调性 $F(x)$是单调不减函数，即当$x_1&amp;lt;x_2$时，有$F(x_1)\leq F(x_2)$ 有界性 $0\leq F(x) \leq1 \quad (-\infty&amp;lt;x&amp;lt;+\infty)$，且$F(-\infty)=\lim\limits_{x\to -\infty} {F(x)}=0$，$F(+\infty)=\lim\limits_{x\to +\infty} {F(x)}=1$ 右连续性，即$F(x+0)=F(x)$，$\forall x\in R$ 连续型随机变量 连续型随机变量及其概率密度函数 设随机变量$X$的分布函数$F(x)$，如果存在非负函数$f(x)$，使得$\forall x \in (-\infty,+\infty)$，都有 则称$X$为连续型随机变量，$f(x)$为$X$的概率密度函数，简称概率密度或密度。 相关性质： $f(x)\geq 0,\quad -\infty&amp;lt;x&amp;lt;+\infty $ $\int_{-\infty}^{+\infty}f(x)=1$ 对于$\forall x_1\leq x_2$，$P(x_1&amp;lt;X\leq x_2)$$=\int_{x_1}^{x_2}f(x)d_x = F(x_2)-F(x_1)$ 若$f(x)$在$x$处连续，则$F^{‘}(x)=f(x)$ 改变$f(x)$在个别处的值，不影响$F(x)$ $\forall x,P(X=x)=\int_x^xf(t)d_t=0$ 通常提到离散型随机变量的概率分布指的是其分布律，连续型随机变量的概率分布指的是其概率密度。 常见的连续型随机变量的分布 均匀分布 随机变量$X$的概率密度为 则称$X$服从$[a，b]$上的均匀分布，记为$X \sim U[a,b]$. 指数分布 随机变量$X$的概率密度为 则称$X$服均参数为$\lambda$的指数分布，记为$X \sim Exp(\lambda)$. 正态分布 随机变量$X$的概率密度为 其中，$\mu$、$\sigma$是常数，且$\sigma &amp;gt;0$，则称$X$服均参数为$\mu,\sigma$的正态分布，记为$X \sim N(\mu,\sigma^2)$. 特别地，当$\mu = 0$，$\sigma = 1$时，称$X$服从标准正态分布，其概率密度函数和分布函数分别用$\varphi(x)$和$\Phi(x)$表示。有$\varphi(0)=0.5$和$\Phi(-x)=1-\Phi(-x)$。 设$X \sim N(\mu,\sigma^2)$，则 由上式可知，正态随机变量的线性函数也服从正态分布，且非标准正态分布可以转化为标准正态分布计算概率密度的值。 随机变量的函数的分布 当$X$是连续型随机变量时，求$Y=g(X)$的概率密度的一般方法是： 先求$Y$的分布函数$F_y(y)$的表达式 再对$F_y(y)$求导，得$Y$得概率密度函数</summary></entry><entry><title type="html">随机事件与概率</title><link href="http://localhost:4000/2020/03/04/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87.html" rel="alternate" type="text/html" title="随机事件与概率" /><published>2020-03-04T00:00:00+08:00</published><updated>2020-03-04T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/04/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87</id><content type="html" xml:base="http://localhost:4000/2020/03/04/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87.html">&lt;h2 id=&quot;事件之间的关系&quot;&gt;事件之间的关系&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
