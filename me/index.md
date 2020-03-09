@@ -27,6 +27,6 @@ key: page-about
 comment: false
 ---
 
-<audio style="color:red" src="https://cdn.jsdelivr.net/gh/ReFantasy/ReFantasy.github.io/me/秘密花园.mp3" controls="controls"></audio>
+<audio src="https://cdn.jsdelivr.net/gh/ReFantasy/ReFantasy.github.io/me/秘密花园.mp3" controls="controls" preload="auto"></audio>
 
 
