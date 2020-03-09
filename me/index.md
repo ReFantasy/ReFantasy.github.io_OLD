@@ -27,7 +27,7 @@ key: page-about
 comment: false
 ---
 
-**七里香**$$(钢琴版伴奏)$$：
+$$七里香_{(钢琴版伴奏)}$$：
 
 <audio src="https://cdn.jsdelivr.net/gh/ReFantasy/ReFantasy.github.io/me/七里香伴奏.mp3" controls="controls" preload="auto"></audio>
 
