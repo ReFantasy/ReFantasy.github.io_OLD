@@ -27,10 +27,10 @@ key: page-about
 comment: false
 ---
 
-**七里香**$$_{钢琴版伴奏}$$：
+<font face="楷体" size="3" color="black">七里香</font><font size="1" color="black">钢琴版伴奏</font>
 
 <audio src="https://cdn.jsdelivr.net/gh/ReFantasy/ReFantasy.github.io/me/七里香伴奏.mp3" controls="controls" preload="auto"></audio>
 
 
-<font face="楷体" size="3" color="black">七里香</font><font size="1" color="black">钢琴版伴奏</font>
+
 
