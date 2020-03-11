@@ -40,5 +40,5 @@ comment: false
 
 ## Tools
 
-- OctaveDoc <a href="{{page.jsdelivr}}/resource/files/octave.pdf" target="_blank">Local</a>   [Online](https://octave.org/doc/interpreter/)
+- OctaveDoc <a href="{{page.jsdelivr}}/resource/files/octave.pdf" target="_blank">[Local]</a>   [\[Online\]](https://octave.org/doc/interpreter/)
 
