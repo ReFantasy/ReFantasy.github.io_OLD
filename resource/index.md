@@ -38,3 +38,7 @@ comment: false
 
 - <a href="{{page.jsdelivr}}/resource/files/lshort-cn.pdf" target="_blank">Latex 语法</a>
 
+## Tools
+
+- OctaveDoc <a href="{{page.jsdelivr}}/resource/files/octave.pdf" target="_blank">Local</a>   [Online](https://octave.org/doc/interpreter/)
+
