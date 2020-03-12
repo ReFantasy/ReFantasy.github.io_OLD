@@ -27,7 +27,6 @@ key: page-resource
 comment: false
 ---
 
-
 ## Web
 
   - <a href="http://cplusplus.com" target="_blank">cplusplus</a>

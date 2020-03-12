@@ -1,4 +1,4 @@
-I"<h2 id="二维随机变量的概念及其分布">二维随机变量的概念及其分布</h2>
+I"<h2 id="二维随机变量的概念及其分布">二维随机变量的概念及其分布</h2>
 
 <p>设$\Omega={\omega}$是随机试验$T$的样本空间，$X$和$Y$是定义在$\Omega$上的两个随机变量，由$X$和$Y$构成的一个向量，$(X,Y)$叫做二维随机向量或二维随机变量。对于任意实数$x$和$y$，二元函数</p>
 
@@ -14,7 +14,7 @@ F(x,y)&=P\{X\leq x \cap Y\leq y\} \\
 
 <p>如果存在非负函数$f(x,y)$，使得对于任意的实数$x$，$y$，均有</p>
 
-<script type="math/tex; mode=display">F(x,y)=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}f(u,v)d_u d_v</script>
+<script type="math/tex; mode=display">F(x,y)=\int_{-\infty}^{y}\int_{-\infty}^{x}f(u,v)d_u d_v</script>
 
 <p>则称$(X,Y)$为二维连续型随机变量，$f(x,y)$为概率密度函数或联合概率密度函数。</p>
 
