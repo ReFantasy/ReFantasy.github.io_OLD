@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN# the language of your site, default as "en""><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN# the language of your site, default as "en"" /><updated>2020-03-14T14:57:50+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ReFantasy</title><author><name>Tan Dongliang</name><email>2016100532@mails.cust.edu.cn</email></author><entry><title type="html">朴素贝叶斯分类</title><link href="http://localhost:4000/2020/03/14/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB.html" rel="alternate" type="text/html" title="朴素贝叶斯分类" /><published>2020-03-14T00:00:00+08:00</published><updated>2020-03-14T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/14/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB</id><content type="html" xml:base="http://localhost:4000/2020/03/14/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN# the language of your site, default as "en""><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN# the language of your site, default as "en"" /><updated>2020-03-14T16:17:20+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">ReFantasy</title><author><name>Tan Dongliang</name><email>2016100532@mails.cust.edu.cn</email></author><entry><title type="html">朴素贝叶斯分类</title><link href="http://localhost:4000/2020/03/14/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB.html" rel="alternate" type="text/html" title="朴素贝叶斯分类" /><published>2020-03-14T00:00:00+08:00</published><updated>2020-03-14T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/14/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB</id><content type="html" xml:base="http://localhost:4000/2020/03/14/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB.html">&lt;blockquote&gt;
   &lt;p&gt;&lt;a href=&quot;https://refantasy.cn/2020/03/04/随机事件与概率.html&quot;&gt;贝叶斯公式参见&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;本文内容和公式主要参考 李航《统计学习方法》&lt;/p&gt;
@@ -76,17 +76,17 @@ P(X=x|Y=c_k)&amp;=P(X^{(1)}=x^{(1)},...,X^{(n)}=x^{(n)}|Y=c_k)\\
   &lt;li&gt;
     &lt;p&gt;计算先验概率以及条件概率&lt;/p&gt;
 
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;P(Y=c_k)，P(X^{(j)}=a_{jl}\|Y=c_k)\nonumber&lt;/script&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;P(Y=c_k)，P(X^{(j)}=a_{jl}|Y=c_k)\nonumber&lt;/script&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;对于给定实例$x=(x^{(1)},x^{(2)},…,x^{(n)})^T$，计算&lt;/p&gt;
 
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}\|Y=c_k),k=1,2,...,K\nonumber&lt;/script&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k),k=1,2,...,K\nonumber&lt;/script&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;确定实例$x$的分类&lt;/p&gt;
 
-    &lt;script type=&quot;math/tex; mode=display&quot;&gt;y=\mathop{\arg\max}_{c_k}P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}\|Y=c_k)\nonumber&lt;/script&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;y=\mathop{\arg\max}_{c_k}P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)\nonumber&lt;/script&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
