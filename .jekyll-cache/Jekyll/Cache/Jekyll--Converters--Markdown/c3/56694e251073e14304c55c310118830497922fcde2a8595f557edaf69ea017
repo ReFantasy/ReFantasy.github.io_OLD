@@ -1,0 +1,439 @@
+I"ե<blockquote>
+  <p><a href="https://refantasy.cn/2020/03/04/随机事件与概率.html">贝叶斯公式参见</a></p>
+
+  <p>本文内容和公式主要参考 李航《统计学习方法》</p>
+</blockquote>
+
+<h2 id="基本思想">基本思想</h2>
+
+<p>设$X$为随机向量，即数据的特征向量，$Y$为输出空间的随机变量，即分类结果。$P(X,Y)$是$X$和$Y$的联合概率分布，并通过此概率分布生成训练数据集。</p>
+
+<script type="math/tex; mode=display">T=\{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\}</script>
+
+<p>其中，先验概率分布为</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+P(Y=c_k),\quad k=1,2,...,K
+\end{equation}</script>
+
+<p>条件概率分布为</p>
+
+<script type="math/tex; mode=display">P(X=x|Y=c_k)=P(X^{(1)}=x^{(1)},X^{(2)}=x^{(2)},...,X^{(n)}=x^{(n)}|Y=c_k),k=1,2,...,K</script>
+
+<p>由贝叶斯公式可知</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation}
+\begin{aligned}
+P(Y=c_k|X = x)&=\frac{P((X=x)·(Y=c_k))}{P(X=x)}\\
+              &=\frac{P(X=x|Y=c_k)P(Y=c_k)}{\sum_kP(X=x|Y=c_k)P(Y=c_k)}
+\end{aligned}
+\end{equation} %]]></script>
+
+<table>
+  <tbody>
+    <tr>
+      <td>其中，$K$为样本类别数目。在式$(4)$中，$x$表示任意样本实例，$c_k$表示随机变量$Y$取到的值。$P(YX )$表示输入样本$x$，输出分类标签$Y=c_k$的概率。在进行分类时，取$y=f(x)=\mathop{\arg\max}_{c_k} P(Y=c_k</td>
+      <td>X=x)$即为我们所要预测的分类结果。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>注意到，在式$(4)$中，对于$\forall c_k$，分母的值都是一样的。所以</p>
+
+<script type="math/tex; mode=display">y=\mathop{\arg\max}_{c_k}P(X=x|Y=c_k)P(Y=c_k)</script>
+
+<p>$y$ 即为所要预测的$x$的分类结果。</p>
+
+<h2 id="参数估计">参数估计</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>在朴素贝叶斯法中，学习意味着估计$P({Y=c_k})$和$P({X = x}</td>
+      <td>{Y=c_k})$。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>先验概率$P(Y=c_k)$的极大似然估计为
+<script type="math/tex">P(Y=c_k)=\frac{\sum_{i=1}^NI(y_i=c_k)}{N},k=1,2,...,K</script></p>
+
+<p>其中，$N$为样本个数，$I$为指示函数。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>条件概率分布$P(X=x</td>
+      <td>Y=c_k)$有指数级参数，其估计实际是不可行的。事实上，假设$x^{(j)}$为随机变量$X$第$j$维的值，设其可取值有$S_j$个，$j=1,2,…,n$，$Y$的可取值有$K$个，那么条件概率分布的参数个数为$K\prod_{j=1}^nS_j$。朴素贝叶斯法对条件概率分布做了条件独立的假设，这也是“朴素”的得名由来。具体地，条件独立性假设是</td>
+    </tr>
+  </tbody>
+</table>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation}
+\begin{aligned}
+P(X=x|Y=c_k)&=P(X^{(1)}=x^{(1)},...,X^{(n)}=x^{(n)}|Y=c_k)\\
+            &=\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)
+\end{aligned}
+\end{equation} %]]></script>
+
+<p>其中，</p>
+
+<script type="math/tex; mode=display">P(X^{(j)}=a_{jl}|Y=c_k)=\frac{\sum_{i=1}^NI(x_i^{(j)}=a_{jl},y_i=c_k)}{\sum_{i=1}^NI(y_i=c_k)}</script>
+
+<p>$l=1,2,…,S_j$，$a_{jl}$是第$j$个特征可能取得第$l$个值。</p>
+
+<p>由式$(5)(6)(7)(8)$即可求出随机变量$X=x$时的分类结果。</p>
+
+<h2 id="学习与分类算法">学习与分类算法</h2>
+
+<hr />
+
+<p><strong>算法 朴素贝叶斯算法</strong></p>
+
+<hr />
+
+<p>输入：训练数据$T$，待预测实例$x$</p>
+
+<p>输出：实例$x$的分类</p>
+
+<ol>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>计算先验概率以及条件概率$P(Y=c_k)$，$P(X^{(j)}=a_{jl}</td>
+          <td>Y=c_k)$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>对于给定实例$x=(x^{(1)},x^{(2)},…,x^{(n)})^T$，计算</p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>$P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}</td>
+          <td>Y=c_k),k=1,2,…,K$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>确定实例$x$的分类</p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>$y=\mathop{\arg\max}<em>{c_k}P(Y=c_k)\prod</em>{j=1}^nP(X^{(j)}=x^{(j)}</td>
+          <td>Y=c_k)$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="贝叶斯估计">贝叶斯估计</h2>
+
+<p>极大似然法估计可能会出现所要估计的概率为0的情况。这会影响到后验概率的计算结果，使分类产生偏差。解决这一问题是使用贝叶斯估计。具体地，条件概率的贝叶斯估计是</p>
+
+<script type="math/tex; mode=display">P(X^{(j)}=a_{jl}|Y=c_k)=\frac{\sum_{i=1}^NI(x_i^{(j)}=a_{jl},y_i=c_k)+\lambda}{\sum_{i=1}^NI(y_i=c_k)+S_j\lambda},\quad\lambda\geq 0</script>
+
+<p>同样地，先验概率的贝叶斯估计是</p>
+
+<script type="math/tex; mode=display">P(Y=c_k)=\frac{\sum_{i=1}^NI(y_i=c_k)+\lambda}{N+K\lambda}</script>
+
+<h2 id="代码实现">代码实现</h2>
+
+<p>首先定义一个通用数据集类</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+ *
+ * 
+ *    通用数据集类
+ * 
+ *    模板参数 D 为样本数据部分的数据类型
+ *    模板参数 L 为样本标签部分的数据类型
+ *    一个样布数据和一个样本标签组成一条记录
+ *    默认使用 vector 容器保存数据记录
+ * 
+ *    License: MIT
+ * 
+ *    ©TDL 2020.03.13
+ *    Contact:refantasy.cn
+ * 
+ */</span>
+<span class="cp">#include &lt;utility&gt;
+#include &lt;vector&gt;
+</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">D</span><span class="p">,</span> <span class="k">typename</span> <span class="n">L</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">DataSet</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="n">D</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">label_type</span> <span class="o">=</span> <span class="n">L</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">record_type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">D</span><span class="p">,</span> <span class="n">L</span><span class="o">&gt;</span><span class="p">;</span>
+
+    <span class="n">DataSet</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="cm">/* *\brief 插入一个样本
+     *  \param d 样本特征向量
+     *  \param la 样本标签值
+     */</span>
+    <span class="kt">void</span> <span class="n">Insert</span><span class="p">(</span><span class="k">const</span> <span class="n">value_type</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="n">label_type</span> <span class="o">&amp;</span><span class="n">la</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">data</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">d</span><span class="p">,</span> <span class="n">la</span><span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* *\brief 查找一个样本
+     *  \param n 样本索引
+     *  \return 一条记录引用
+     */</span>
+    <span class="k">const</span> <span class="n">record_type</span><span class="o">&amp;</span> <span class="n">GetRecord</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">n</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 数据集大小</span>
+    <span class="kt">size_t</span> <span class="n">size</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">data</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="p">}</span>
+
+<span class="nl">private:</span>
+    <span class="c1">// 样本集合</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">record_type</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">;</span>
+<span class="p">};</span>
+
+</code></pre></div></div>
+
+<p>贝叶斯分类器</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+ *
+ *    朴素贝叶斯分类器 李航《统计学习方法》代码实现
+ *
+ *    该类仅用于研究贝叶斯分类算法，样本特征的不同特征默认采用同种数据类型（整型）表示
+ *    样本类别标签必须是从零开始的连续整数
+ *
+ *    License: MIT
+ * 
+ *    ©TDL 2020.03.13
+ *    Contact:refantasy.cn
+ * 
+ */</span>
+<span class="cp">#include &lt;vector&gt;
+#include &lt;array&gt;
+#include "dataset.hpp"
+</span>
+<span class="cm">/*
+ * *\brief 贝叶斯分类器
+ *  \param dims 样本特征的维度
+ *  \param ClassesN 分类的类别:0,1,2,...,ClassesN-1
+ *  \param MaxFeaValue 特征值得最大取值
+ */</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dims</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ClassesN</span><span class="p">,</span> <span class="kt">int</span> <span class="n">MaxFeaValue</span><span class="p">,</span> <span class="k">typename</span> <span class="n">FEATURE_TYPE</span> <span class="o">=</span> <span class="kt">int</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">Bayes</span>
+<span class="p">{</span>
+    <span class="k">friend</span> <span class="kt">void</span> <span class="n">Example_4_2</span><span class="p">();</span>
+
+<span class="nl">public:</span>
+    <span class="n">Bayes</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="cm">/* *\param d 数据集，由若干条记录组成，每条记录由特征向量和标签组成
+     *  \param lambd 贝叶斯估计参数，默认为0，通常取1
+     *  \param Sj Sj[i]表示第i维特征可能取到的值得个数
+     */</span>
+    <span class="n">Bayes</span><span class="p">(</span><span class="k">const</span> <span class="n">DataSet</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">FEATURE_TYPE</span><span class="p">,</span> <span class="n">dims</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">,</span>
+          <span class="kt">double</span> <span class="n">lambda</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">Sj</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">MaxFeaValue</span><span class="p">))</span> <span class="o">:</span> <span class="n">_dataset</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="n">_lambda</span><span class="p">(</span><span class="n">lambda</span><span class="p">),</span> <span class="n">_Sj</span><span class="p">(</span><span class="n">Sj</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">MaxK</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">GetRecord</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">second</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">GetRecord</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">second</span> <span class="o">&gt;</span> <span class="n">MaxK</span><span class="p">)</span>
+                <span class="n">MaxK</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">GetRecord</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">second</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="n">MaxK</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 训练</span>
+    <span class="kt">void</span> <span class="n">Train</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">ComputePrior</span><span class="p">();</span>
+        <span class="n">ComputeConditionPrior</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 预测</span>
+    <span class="kt">int</span> <span class="n">Pred</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">FEATURE_TYPE</span><span class="p">,</span> <span class="n">dims</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">result</span><span class="p">[</span><span class="n">ClassesN</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">ClassesN</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">double</span> <span class="n">prob</span> <span class="o">=</span> <span class="n">_prior_probability</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">dims</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">prob</span> <span class="o">*=</span> <span class="n">_condition_probability</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]];</span>
+            <span class="p">}</span>
+
+            <span class="n">result</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">prob</span><span class="p">;</span>
+            <span class="c1">//std::cout&lt;&lt;prob&lt;&lt;std::endl;</span>
+        <span class="p">}</span>
+
+        <span class="kt">int</span> <span class="n">max_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">ClassesN</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">result</span><span class="p">[</span><span class="n">max_index</span><span class="p">])</span>
+                <span class="n">max_index</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">max_index</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+    <span class="c1">// 计算先验概率</span>
+    <span class="kt">void</span> <span class="n">ComputePrior</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">ClassesN</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">_dataset</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">_dataset</span><span class="p">.</span><span class="n">GetRecord</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">second</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span>
+                    <span class="n">I</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">_prior_probability</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="n">I</span> <span class="o">+</span> <span class="n">_lambda</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">_dataset</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">+</span> <span class="p">(</span><span class="n">K</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">_lambda</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 计算条件概率</span>
+    <span class="kt">void</span> <span class="n">ComputeConditionPrior</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">ClassesN</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">dims</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">L</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">L</span> <span class="o">&lt;=</span> <span class="n">MaxFeaValue</span><span class="p">;</span> <span class="n">L</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="kt">int</span> <span class="n">p_x_y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                    <span class="kt">int</span> <span class="n">y_c_k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">_dataset</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">_dataset</span><span class="p">.</span><span class="n">GetRecord</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">second</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span>
+                        <span class="p">{</span>
+                            <span class="n">y_c_k</span><span class="o">++</span><span class="p">;</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="n">_dataset</span><span class="p">.</span><span class="n">GetRecord</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">first</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">L</span><span class="p">)</span>
+                                <span class="n">p_x_y</span><span class="o">++</span><span class="p">;</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                    <span class="n">_condition_probability</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">L</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="n">p_x_y</span> <span class="o">+</span> <span class="n">_lambda</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">y_c_k</span> <span class="o">+</span> <span class="n">_Sj</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">_lambda</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+    <span class="c1">// 数据集</span>
+    <span class="n">DataSet</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">FEATURE_TYPE</span><span class="p">,</span> <span class="n">dims</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">_dataset</span><span class="p">;</span>
+
+    <span class="c1">// 先验概率</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="n">ClassesN</span><span class="o">&gt;</span> <span class="n">_prior_probability</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+    <span class="c1">// 条件概率</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="n">MaxFeaValue</span> <span class="o">+</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">dims</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">ClassesN</span><span class="o">&gt;</span> <span class="n">_condition_probability</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+    <span class="kt">double</span> <span class="n">_lambda</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">// 特征值可取值得个数</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">_Sj</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">MaxFeaValue</span><span class="p">);</span>
+
+    <span class="c1">// 样本标签可取到的值的个数</span>
+    <span class="kt">int</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>《统计学习方法》例4-2</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">Example_4_2</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">S</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">L</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+    <span class="c1">// 创建数据集</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">dims</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">MaxFeaValue</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">classes</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="c1">// 标签重新映射到连续整形 y = -1 -&gt; 0,  y = 1 -&gt; 1</span>
+    <span class="n">DataSet</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">dims</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">d</span><span class="p">;</span>
+
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="n">S</span><span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="n">M</span><span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="n">M</span><span class="p">},</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="n">S</span><span class="p">},</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="n">S</span><span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">2</span><span class="p">,</span> <span class="n">S</span><span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span><span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span><span class="p">},</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">2</span><span class="p">,</span> <span class="n">L</span><span class="p">},</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">2</span><span class="p">,</span> <span class="n">L</span><span class="p">},</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span> <span class="n">L</span><span class="p">},</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span> <span class="n">M</span><span class="p">},</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span> <span class="n">M</span><span class="p">},</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span> <span class="n">L</span><span class="p">},</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">d</span><span class="p">.</span><span class="n">Insert</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span> <span class="n">L</span><span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="c1">// 创建分类器并传入数据集</span>
+    <span class="n">Bayes</span><span class="o">&lt;</span><span class="n">dims</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">MaxFeaValue</span><span class="o">&gt;</span> <span class="n">bayes</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="c1">// 训练</span>
+    <span class="n">bayes</span><span class="p">.</span><span class="n">Train</span><span class="p">();</span>
+
+    <span class="c1">// 输出先验概率</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"先验概率"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="o">&amp;</span><span class="n">prior</span> <span class="o">=</span> <span class="n">bayes</span><span class="p">.</span><span class="n">_prior_probability</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">prior</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"P(Y="</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="s">")="</span> <span class="o">&lt;&lt;</span> <span class="n">prior</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="c1">// 输出条件概率</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"条件概率(SML分别用123替换)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="o">&amp;</span><span class="n">condi</span> <span class="o">=</span> <span class="n">bayes</span><span class="p">.</span><span class="n">_condition_probability</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span><span class="k">return</span> <span class="s">"S"</span><span class="p">;</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span><span class="k">return</span> <span class="s">"M"</span><span class="p">;</span><span class="k">else</span> <span class="k">return</span> <span class="s">"L"</span><span class="p">;</span> <span class="p">};</span>
+    <span class="k">auto</span> <span class="n">g</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span><span class="k">if</span><span class="p">(</span><span class="n">y</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">};</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">prior</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">dims</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">L</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">L</span> <span class="o">&lt;=</span> <span class="n">MaxFeaValue</span><span class="p">;</span> <span class="n">L</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"P(X"</span>
+                              <span class="o">&lt;&lt;</span> <span class="s">"^"</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">"="</span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"|Y="</span> <span class="o">&lt;&lt;</span> <span class="n">g</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">") = "</span> <span class="o">&lt;&lt;</span> <span class="n">condi</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">L</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"P(X"</span>
+                              <span class="o">&lt;&lt;</span> <span class="s">"^"</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">"="</span> <span class="o">&lt;&lt;</span> <span class="n">L</span> <span class="o">&lt;&lt;</span> <span class="s">"|Y="</span> <span class="o">&lt;&lt;</span> <span class="n">g</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">") = "</span> <span class="o">&lt;&lt;</span> <span class="n">condi</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">L</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 预测</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"预测"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="n">S</span><span class="p">};</span>
+    <span class="kt">int</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">bayes</span><span class="p">.</span><span class="n">Pred</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"P(x=(2,S)) = "</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">g</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+:ET
